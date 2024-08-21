@@ -1,5 +1,7 @@
 # Lotto Max Number Generator (Canada)
 
+![Lotto Max Logo](./Lotto_Max_Logo.png)
+
 This is a Python-based application for generating Lotto Max numbers using historical data and weighted combinations. The application allows users to generate multiple tickets with a balanced mix of frequently drawn numbers and randomly selected numbers, taking into account pairs, triplets, and other combinations.
 
 ## Features
