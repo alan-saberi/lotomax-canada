@@ -29,13 +29,6 @@ most_common_triplets = scraper.get_most_common_triplets()
 most_common_consecutive_triplets = scraper.get_most_common_consecutive_triplets()
 most_common_four_numbers = scraper.get_most_common_four_numbers()
 
-# print('frequency_table:', frequency_table)
-# print('most_common_pairs:', most_common_pairs)
-# print('most_common_consecutive_pairs:', most_common_consecutive_pairs)
-# print('most_common_triplets:', most_common_triplets)
-# print('most_common_consecutive_triplets:', most_common_consecutive_triplets)
-# print('most_common_four_numbers:', most_common_four_numbers)
-
 
 def generate_weighted_random_number(frequency_table, damping_factor=0.8):
     """Generates a number considering frequency data with reduced bias."""
@@ -48,7 +41,7 @@ def generate_weighted_random_number(frequency_table, damping_factor=0.8):
     adjusted_probabilities = [(1 - damping_factor) + damping_factor * p for p in probabilities]
     
     selected_number = random.choices(numbers, weights=adjusted_probabilities, k=1)[0]
-    print(f"Generated weighted random number: {selected_number}")
+    # print(f"Generated weighted random number: {selected_number}")
     return selected_number
 
 def select_weighted_set(set_list, numbers_set, max_size, weight, selected_count, set_name):
@@ -59,7 +52,7 @@ def select_weighted_set(set_list, numbers_set, max_size, weight, selected_count,
         if len(numbers_set) + len(weighted_choice) <= max_size:
             numbers_set.update(weighted_choice)
             selected_count += 1
-            print(f"Added from {set_name}: {weighted_choice}, updated set: {sorted(numbers_set)}")
+            # print(f"Added from {set_name}: {weighted_choice}, updated set: {sorted(numbers_set)}")
     return selected_count
 
 def generate_lotto_max_set(frequency_table, damping_factor=0.8, lucky_numbers=None):
@@ -87,7 +80,7 @@ def generate_lotto_max_set(frequency_table, damping_factor=0.8, lucky_numbers=No
             number = generate_weighted_random_number(frequency_table, damping_factor)
             if number not in numbers_set:
                 numbers_set.add(number)
-                print(f"Added from frequency table: {number}, current set: {sorted(numbers_set)}")
+                # print(f"Added from frequency table: {number}, current set: {sorted(numbers_set)}")
         
         # Rotate through the weighted sets to add diversity, with limited selection per set
         for weighted_choice in weighted_sets:
@@ -103,7 +96,7 @@ def generate_lotto_max_set(frequency_table, damping_factor=0.8, lucky_numbers=No
         number = generate_weighted_random_number(frequency_table, damping_factor)
         if number not in numbers_set:
             numbers_set.add(number)
-            print(f"Randomly added from frequency table to fill: {number}, current set: {sorted(numbers_set)}")
+            # print(f"Randomly added from frequency table to fill: {number}, current set: {sorted(numbers_set)}")
 
     print(f"Final generated set: {sorted(numbers_set)}\n")
     return sorted(numbers_set)
